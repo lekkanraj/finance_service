@@ -3,6 +3,11 @@ include '../config/db.php';
 require 'user.php';
 
 $user=new user($connect);
-$userinfo=$user->login();
 
-print json_encode($userinfo);
+$post=$_POST;
+$userinfo=$user->login($post);
+if($userinfo){
+    print json_encode($userinfo);
+}else{
+    echo 0;
+}
