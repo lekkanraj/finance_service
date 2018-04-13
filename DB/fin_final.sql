@@ -1,6 +1,6 @@
 /*
-SQLyog Community v12.4.3 (32 bit)
-MySQL - 10.1.25-MariaDB : Database - finance
+SQLyog Community v13.0.0 (32 bit)
+MySQL - 5.5.41-MariaDB : Database - fin_test
 *********************************************************************
 */
 
@@ -25,27 +25,27 @@ CREATE TABLE `config` (
 CREATE TABLE `customer_master` (
   `cus_id` int(11) NOT NULL AUTO_INCREMENT,
   `cus_name` varchar(50) DEFAULT NULL,
-  `releation_name` varchar(100) DEFAULT NULL,
+  `job_name` varchar(100) DEFAULT NULL,
   `mobile_no` varchar(15) DEFAULT NULL,
   `cur_addr` varchar(300) DEFAULT NULL,
   `per_addr` varchar(300) DEFAULT NULL,
   `house` varchar(10) DEFAULT NULL,
   `bailee_name` varchar(50) DEFAULT NULL,
   `bailee_mob` varchar(50) DEFAULT NULL,
-  `sec_id` int(11) DEFAULT NULL,
-  `security_doc` varchar(100) DEFAULT NULL,
-  `status` varchar(1) DEFAULT NULL,
+  `security_type` int(11) DEFAULT NULL,
+  `security_id` varchar(100) DEFAULT NULL,
+  `isactive` int(1) DEFAULT NULL,
   `net_amt` decimal(8,2) DEFAULT NULL,
   `rec_amt` decimal(8,2) DEFAULT NULL,
   `bal_amt` decimal(8,2) DEFAULT NULL,
-  `lm_id` int(11) DEFAULT NULL,
+  `line_id` int(11) DEFAULT NULL,
   `cr_dt` datetime(3) DEFAULT NULL,
   `cr_by` varchar(50) DEFAULT NULL,
   `up_dt` datetime(3) DEFAULT NULL,
   `up_by` varchar(50) DEFAULT NULL,
   `fin_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`cus_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `db_backup_history` */
 
@@ -196,14 +196,14 @@ CREATE TABLE `security_master` (
 /*Table structure for table `user_master` */
 
 CREATE TABLE `user_master` (
-  `usr_id` int(11) NOT NULL AUTO_INCREMENT,
-  `usr_name` varchar(50) DEFAULT NULL,
-  `pwd` varchar(50) DEFAULT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) DEFAULT NULL,
+  `user_pwd` varchar(50) DEFAULT NULL,
   `status` varchar(1) DEFAULT NULL,
   `created_dt` datetime(3) DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `admin` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`usr_id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
