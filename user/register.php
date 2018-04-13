@@ -12,7 +12,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // get posted data
 $data=$_POST;
 
-print json_encode($data);
+//print json_encode($data);
 
 $user=new user($connect);
 $user=$user->register($data);

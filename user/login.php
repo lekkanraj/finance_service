@@ -11,3 +11,4 @@ if($userinfo){
 }else{
     echo 0;
 }
+?>
