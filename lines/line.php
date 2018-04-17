@@ -17,8 +17,7 @@ Class line{
         $rows=array();
         while($result=mysqli_fetch_assoc($query)){
             $rows[]=$result;
-         } 
-        //$result=mysqli_fetch_assoc($query);
+         }
         return $rows;
     }
     
@@ -57,7 +56,6 @@ Class line{
                                                 '".$status."'
                                             )
                             ";
-            //echo $query;
             $res=mysqli_query($this->db_con,$query);
             if($res){
                 return $this->linelist();
@@ -79,7 +77,6 @@ Class line{
                                                 area='".$post['area']."',
                                                 isactive= '".$status."'
                                                 where line_id='".$post['line_id']."'";
-            //echo $query;
             $res=mysqli_query($this->db_con,$query);
             if($res){
                 return $this->linelist();

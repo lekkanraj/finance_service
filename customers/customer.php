@@ -13,7 +13,6 @@ Class customer{
         while($result=mysqli_fetch_assoc($query)){
             $rows[]=$result;
          } 
-        //$result=mysqli_fetch_assoc($query);
         return $rows;
     }
     
@@ -24,7 +23,6 @@ Class customer{
         while($result=mysqli_fetch_assoc($query)){
             $rows[]=$result;
         }
-        //$result=mysqli_fetch_assoc($query);
         return $rows;
     }
     
@@ -61,7 +59,6 @@ Class customer{
                                                 '".$status."'
                                             )
                             ";
-            //echo $query;
             $res=mysqli_query($this->db_con,$query);
             if($res){
                 return $this->customerslist();
@@ -91,8 +88,7 @@ Class customer{
                                                 security_id='".$post['security_id']."',
                                                 line_id='".$post['line_id']."',
                                                 isactive= '".$status."' where cus_id='".$post['cus_id']."'";
-            //echo $query;
-            $res=mysqli_query($this->db_con,$query);
+           $res=mysqli_query($this->db_con,$query);
             if($res){
                 return $this->customerslist();
             }else{
@@ -104,8 +100,7 @@ Class customer{
         }
     }
     
-    public function getinfo($info_type){
-        
+    public function getinfo($info_type){        
         if($info_type=="security"){
             $security_master_table="security_master";
             $query=mysqli_query($this->db_con,"select * from $security_master_table");
@@ -114,8 +109,7 @@ Class customer{
                 $rows[]=$result;
             }
             return $rows;
-        }
-        
+        }        
         if($info_type=="house"){
             $house_master_table="house_master";
             $query=mysqli_query($this->db_con,"select * from $house_master_table");
@@ -125,7 +119,7 @@ Class customer{
             }
             return $rows;
         }
-        
+        return false;        
     }
     
 }

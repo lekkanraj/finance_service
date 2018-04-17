@@ -1,5 +1,6 @@
 <?php
-Class user{
+require 'encryption.php';
+Class user extends Encryption{
     
     private $db_con;
     
@@ -16,6 +17,8 @@ Class user{
             $user_name=$user_pwd='';
             $user_name=$data['username'];
             $user_pwd=$data['password'];
+            $user_pwd=$this->encode($user_pwd);
+            
             $query=mysqli_query($this->db_con,"select user_id,user_name from $user_table where user_name='".$user_name."' AND user_pwd='".$user_pwd."'");
             $rows=array();
             /* while($result=mysqli_fetch_array($query)){
@@ -32,6 +35,7 @@ Class user{
     public function register(){
         $user_table="user_master";
         if($post){
+            //$user_pwd=$this->encode($user_pwd);
             $query="INSERT into users(username,firstname,lastname) values('".$post['username']."','".$post['firstName']."','".$post['lastName']."')";
             //echo $query;
             $res=mysqli_query($connect,$query);

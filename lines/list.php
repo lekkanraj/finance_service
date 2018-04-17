@@ -2,7 +2,7 @@
 include '../config/db.php';
 require 'line.php';
 
-$lineslist=new Line($connect);
+$lineslist=new line($connect);
 $lines_info=array();
 $lines_info=$lineslist->linelist();
 if($lines_info){

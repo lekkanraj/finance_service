@@ -2,7 +2,7 @@
 include '../config/db.php';
 require 'line.php';
 
-$linestypelist=new Line($connect);
+$linestypelist=new line($connect);
 $linestype_info=array();
 $linestype_info=$linestypelist->linetypelist();
 if($linestype_info){
