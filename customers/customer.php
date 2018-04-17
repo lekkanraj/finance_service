@@ -104,4 +104,28 @@ Class customer{
         }
     }
     
+    public function getinfo($info_type){
+        
+        if($info_type=="security"){
+            $security_master_table="security_master";
+            $query=mysqli_query($this->db_con,"select * from $security_master_table");
+            $rows=array();
+            while($result=mysqli_fetch_assoc($query)){
+                $rows[]=$result;
+            }
+            return $rows;
+        }
+        
+        if($info_type=="house"){
+            $house_master_table="house_master";
+            $query=mysqli_query($this->db_con,"select * from $house_master_table");
+            $rows=array();
+            while($result=mysqli_fetch_assoc($query)){
+                $rows[]=$result;
+            }
+            return $rows;
+        }
+        
+    }
+    
 }

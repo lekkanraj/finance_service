@@ -45,7 +45,7 @@ CREATE TABLE `customer_master` (
   `up_by` varchar(50) DEFAULT NULL,
   `fin_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`cus_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `db_backup_history` */
 
@@ -103,41 +103,32 @@ CREATE TABLE `finance_master` (
 /*Table structure for table `house_master` */
 
 CREATE TABLE `house_master` (
-  `hou_id` int(11) DEFAULT NULL,
-  `house_type` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Table structure for table `line_days` */
-
-CREATE TABLE `line_days` (
-  `ld_id` int(11) NOT NULL,
-  `day_name` varchar(30) DEFAULT NULL,
-  `status` varchar(1) DEFAULT NULL,
-  PRIMARY KEY (`ld_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `house_id` int(11) NOT NULL AUTO_INCREMENT,
+  `house_type` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`house_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `line_master` */
 
 CREATE TABLE `line_master` (
-  `lm_id` int(11) NOT NULL AUTO_INCREMENT,
-  `lt_id` int(11) DEFAULT NULL,
-  `ld_id` int(11) DEFAULT NULL,
+  `line_id` int(11) NOT NULL AUTO_INCREMENT,
+  `linetype_id` int(11) DEFAULT NULL,
   `area` varchar(200) DEFAULT NULL,
-  `status` varchar(1) DEFAULT NULL,
+  `isactive` varchar(1) DEFAULT NULL,
   `cr_dt` datetime(3) DEFAULT NULL,
   `cr_by` varchar(50) DEFAULT NULL,
   `up_dt` datetime(3) DEFAULT NULL,
   `up_by` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`lm_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`line_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `line_type` */
 
 CREATE TABLE `line_type` (
-  `lt_id` int(11) NOT NULL,
-  `line_type` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`lt_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `linetype_id` int(11) NOT NULL AUTO_INCREMENT,
+  `linetype_name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`linetype_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `monthly_debit` */
 
@@ -189,9 +180,10 @@ CREATE TABLE `monthly_plan_master` (
 /*Table structure for table `security_master` */
 
 CREATE TABLE `security_master` (
-  `sec_id` int(11) DEFAULT NULL,
-  `sec_name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `security_id` int(11) NOT NULL AUTO_INCREMENT,
+  `security_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`security_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `user_master` */
 
