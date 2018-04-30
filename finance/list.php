@@ -5,7 +5,8 @@ require 'finance.php';
 $list=new finance($connect);
 $customer_list=array();
 $post=$_POST;
-$customer_list=$list->customer_list($line_id="");
+$get=$_GET;
+$customer_list=$list->customer_list($get);
 if($customer_list){
     print json_encode($customer_list);
 }else{

@@ -119,6 +119,15 @@ Class customer{
             }
             return $rows;
         }
+        if($info_type=="lines"){
+            $line_master_table="line_master";
+            $query=mysqli_query($this->db_con,"select * from $line_master_table");
+            $rows=array();
+            while($result=mysqli_fetch_assoc($query)){
+                $rows[]=$result;
+            }
+            return $rows;
+        }
         return false;        
     }
     

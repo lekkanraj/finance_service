@@ -6,11 +6,22 @@ Class finance{
         $this->db_con = $db;
     }
     
-    public function customer_list($line_id=""){
+    public function customer_list($get=""){
         $linemaster_table="line_master";
         $linetype_table="line_type";
         $financemaster_table="finance_master";
         $customer_table="customer_master";
+        $linetype=$line="";
+        $linetype=isset($get['linetype'])? $get['linetype'] :"";
+        $line=isset($get['line'])? $get['line'] :"";
+        
+        $where="";
+        if($linetype !=""){
+            $where .=" AND lm.linetype_id=$linetype";
+        }
+        if($line !=""){
+            $where .=" AND lm.line_id=$line";
+        }
         
         $query=mysqli_query($this->db_con,
                                         "select cm.*, lm.area,  fm.fin_id, fm.fin_amt, fm.hold_amt, fm.by_hand_amt, fm.cmpy_amt, 
@@ -19,7 +30,9 @@ Class finance{
                                         JOIN $linemaster_table as lm ON  cm.line_id=lm.line_id
                                         JOIN $linetype_table as lt ON lm.linetype_id=lt.linetype_id
                                         LEFT JOIN $financemaster_table as fm ON  fm.cus_id=fm.cus_id
-                                        WHERE cm.isactive=1");
+                                        WHERE cm.isactive=1 $where");
+        
+       
         
         $rows=array();
         while($result=mysqli_fetch_assoc($query)){

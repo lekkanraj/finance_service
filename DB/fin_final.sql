@@ -47,11 +47,14 @@ CREATE TABLE `customer_master` (
   `up_by` varchar(50) DEFAULT NULL,
   `fin_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`cus_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 /*Data for the table `customer_master` */
 
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (25,'Lekkan M','SE','9944649551','TNHB Velachery','Thayanur','3','Hari','62374672347',6,'AIAPLdsfsdf',1,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (26,'Karthik ','SE','7898943543','Guindy','Kumbakonam','4','Raj','34636278624',4,'3243246237847',1,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (27,'Aki','SE','48375934685','adsfd','sdfsdf','3','raj','5345345345',5,'sdfsdfsdf',1,NULL,NULL,NULL,3,NULL,NULL,NULL,NULL,NULL);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (28,'Yuv','SE','435435345445','retreter','retret','3','tt','34545435',5,'34543543543543',1,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `db_backup_history` */
 
@@ -137,9 +140,14 @@ CREATE TABLE `line_master` (
   `up_dt` datetime(3) DEFAULT NULL,
   `up_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`line_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `line_master` */
+
+insert  into `line_master`(`line_id`,`linetype_id`,`area`,`isactive`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (1,1,'Velachey','1',NULL,NULL,NULL,NULL);
+insert  into `line_master`(`line_id`,`linetype_id`,`area`,`isactive`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (2,2,'Guindy','1',NULL,NULL,NULL,NULL);
+insert  into `line_master`(`line_id`,`linetype_id`,`area`,`isactive`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (3,2,'Ambal Nagar','1',NULL,NULL,NULL,NULL);
+insert  into `line_master`(`line_id`,`linetype_id`,`area`,`isactive`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (4,3,'TNHB Velachery West','1',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `line_type` */
 
@@ -150,6 +158,10 @@ CREATE TABLE `line_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `line_type` */
+
+insert  into `line_type`(`linetype_id`,`linetype_name`) values (1,'Daily');
+insert  into `line_type`(`linetype_id`,`linetype_name`) values (2,'Weekly');
+insert  into `line_type`(`linetype_id`,`linetype_name`) values (3,'Monthly');
 
 /*Table structure for table `monthly_debit` */
 
