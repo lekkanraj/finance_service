@@ -69,4 +69,19 @@ Class finance{
         return $lines;
         
     }
+    
+    public function getFinCustomerinfo($id){
+        $customer_master_table="customer_master";
+        $financemaster_table="finance_master";
+        $query=mysqli_query($this->db_con,
+                    "select cmt.*,fmt.fin_id from $customer_master_table cmt 
+                    LEFT JOIN $financemaster_table as fmt ON  cmt.cus_id=fmt.cus_id
+                    where cmt.cus_id=$id
+                    ");
+        $rows=array();
+        while($result=mysqli_fetch_assoc($query)){
+            $rows[]=$result;
+        }
+        return $rows;
+    }
 }
