@@ -26,10 +26,10 @@ Class finance{
         $query=mysqli_query($this->db_con,
                                         "select cm.*, lm.area,  fm.fin_id, fm.fin_amt, fm.hold_amt, fm.by_hand_amt, fm.cmpy_amt, 
                                         fm.rec_amt, fm.bal_amt, fm.profit, fm.fin_start, fm.fin_end, fm.fin_cnt, fm.close_dt, 
-                                        fm.closing_cnt, fm.fin_status, fm.remarks from $customer_table as cm
+                                        fm.closing_cnt, fm.fin_status_id, fm.remarks from $customer_table as cm
                                         JOIN $linemaster_table as lm ON  cm.line_id=lm.line_id
                                         JOIN $linetype_table as lt ON lm.linetype_id=lt.linetype_id
-                                        LEFT JOIN $financemaster_table as fm ON  fm.cus_id=fm.cus_id
+                                        LEFT JOIN $financemaster_table as fm ON  cm.cus_id=fm.cus_id
                                         WHERE cm.isactive=1 $where");
         
        
@@ -71,17 +71,46 @@ Class finance{
     }
     
     public function getFinCustomerinfo($id){
-        $customer_master_table="customer_master";
+        $linemaster_table="line_master";
+        $linetype_table="line_type";
         $financemaster_table="finance_master";
-        $query=mysqli_query($this->db_con,
-                    "select cmt.*,fmt.fin_id from $customer_master_table cmt 
-                    LEFT JOIN $financemaster_table as fmt ON  cmt.cus_id=fmt.cus_id
-                    where cmt.cus_id=$id
-                    ");
+        $customer_table="customer_master";
+        $financestatusmaster_table="finance_status_master";
+        
+        $query_string="select cm.*, lm.area,lt.linetype_name, fm.fin_id, fm.fin_amt, fm.hold_amt, fm.by_hand_amt, fm.cmpy_amt,
+                    fm.rec_amt, fm.bal_amt, fm.profit, fm.fin_start, fm.fin_end, fm.fin_cnt, fm.close_dt,
+                    fm.closing_cnt, fm.fin_status_id, fsm.finance_status, fm.remarks from $customer_table as cm
+                    JOIN $linemaster_table as lm ON  cm.line_id=lm.line_id
+                    JOIN $linetype_table as lt ON lm.linetype_id=lt.linetype_id
+                    LEFT JOIN $financemaster_table as fm ON  cm.cus_id=fm.cus_id
+                    LEFT JOIN $financestatusmaster_table as fsm ON  fm.fin_status_id=fsm.id
+                    where cm.cus_id=$id
+                    ";
+        $query=mysqli_query($this->db_con,$query_string);
         $rows=array();
         while($result=mysqli_fetch_assoc($query)){
             $rows[]=$result;
         }
         return $rows;
+    }
+    
+    public function updateFinCustomer($post){        
+        $financemaster_table="finance_master";
+        if($post){
+            $query="UPDATE $line_master_table set
+                                                linetype_id='".$post['linetype_id']."',
+                                                area='".$post['area']."',
+                                                isactive= '".$status."'
+                                                where line_id='".$post['line_id']."'";
+            $res=mysqli_query($this->db_con,$query);
+            if($res){
+                return $this->linelist();
+            }else{
+                return $res;
+            }
+            
+        }else{
+            return false;
+        }
     }
 }
