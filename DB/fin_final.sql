@@ -37,9 +37,9 @@ CREATE TABLE `customer_master` (
   `security_type` int(11) DEFAULT NULL,
   `security_id` varchar(100) DEFAULT NULL,
   `isactive` int(1) DEFAULT NULL,
-  `net_amt` decimal(8,2) DEFAULT NULL,
-  `rec_amt` decimal(8,2) DEFAULT NULL,
-  `bal_amt` decimal(8,2) DEFAULT NULL,
+  `net_amt` decimal(8,2) DEFAULT '0.00',
+  `rec_amt` decimal(8,2) DEFAULT '0.00',
+  `bal_amt` decimal(8,2) DEFAULT '0.00',
   `line_id` int(11) DEFAULT NULL,
   `cr_dt` datetime(3) DEFAULT NULL,
   `cr_by` varchar(50) DEFAULT NULL,
@@ -51,10 +51,10 @@ CREATE TABLE `customer_master` (
 
 /*Data for the table `customer_master` */
 
-insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (25,'Lekkan M','SE','9944649551','TNHB Velachery','Thayanur','3','Hari','62374672347',6,'AIAPLdsfsdf',1,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL);
-insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (26,'Karthik ','SE','7898943543','Guindy','Kumbakonam','4','Raj','34636278624',4,'3243246237847',1,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL);
-insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (27,'Aki','SE','48375934685','adsfd','sdfsdf','3','raj','5345345345',5,'sdfsdfsdf',1,NULL,NULL,NULL,3,NULL,NULL,NULL,NULL,NULL);
-insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (28,'Yuv','SE','435435345445','retreter','retret','3','tt','34545435',5,'34543543543543',1,NULL,NULL,NULL,4,NULL,NULL,NULL,NULL,NULL);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (25,'Lekkan M','SE','9944649551','TNHB Velachery','Thayanur','3','Hari','62374672347',6,'AIAPLdsfsdf',1,1000.00,0.00,1000.00,1,NULL,NULL,NULL,NULL,4);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (26,'Karthik ','SE','7898943543','Guindy','Kumbakonam','4','Raj','34636278624',4,'3243246237847',1,200.00,0.00,200.00,2,NULL,NULL,NULL,NULL,2);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (27,'Aki','SE','48375934685','adsfd','sdfsdf','3','raj','5345345345',5,'sdfsdfsdf',1,0.00,0.00,0.00,3,NULL,NULL,NULL,NULL,NULL);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (28,'Yuv','SE','435435345445','retreter','retret','3','tt','34545435',5,'34543543543543',1,100.00,0.00,100.00,4,NULL,NULL,NULL,NULL,3);
 
 /*Table structure for table `db_backup_history` */
 
@@ -92,28 +92,44 @@ CREATE TABLE `finance_collection` (
 CREATE TABLE `finance_master` (
   `fin_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `cus_id` int(11) DEFAULT NULL,
-  `fin_amt` decimal(8,2) DEFAULT NULL,
-  `hold_amt` decimal(8,2) DEFAULT NULL,
-  `by_hand_amt` decimal(8,2) DEFAULT NULL,
-  `cmpy_amt` decimal(8,2) DEFAULT NULL,
-  `rec_amt` decimal(8,2) DEFAULT NULL,
-  `bal_amt` decimal(8,2) DEFAULT NULL,
-  `profit` decimal(8,2) DEFAULT NULL,
+  `fin_amt` decimal(8,2) DEFAULT '0.00',
+  `hold_amt` decimal(8,2) DEFAULT '0.00',
+  `by_hand_amt` decimal(8,2) DEFAULT '0.00',
+  `cmpy_amt` decimal(8,2) DEFAULT '0.00',
+  `rec_amt` decimal(8,2) DEFAULT '0.00',
+  `bal_amt` decimal(8,2) DEFAULT '0.00',
+  `profit` decimal(8,2) DEFAULT '0.00',
   `fin_start` date DEFAULT NULL,
   `fin_end` date DEFAULT NULL,
   `fin_cnt` int(11) DEFAULT NULL,
   `close_dt` date DEFAULT NULL,
   `closing_cnt` int(11) DEFAULT NULL,
-  `fin_status` varchar(10) DEFAULT NULL,
+  `fin_status_id` int(10) NOT NULL,
   `remarks` varchar(500) DEFAULT NULL,
   `cr_dt` datetime(3) DEFAULT NULL,
   `cr_by` varchar(50) DEFAULT NULL,
   `up_dt` datetime(3) DEFAULT NULL,
   `up_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`fin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `finance_master` */
+
+insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (3,28,100.00,20.00,80.00,100.00,0.00,0.00,20.00,'2018-05-10',NULL,NULL,NULL,NULL,1,'',NULL,NULL,NULL,NULL);
+insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (4,25,1000.00,100.00,900.00,1000.00,0.00,0.00,100.00,'2018-05-09',NULL,NULL,NULL,NULL,1,'',NULL,NULL,NULL,NULL);
+
+/*Table structure for table `finance_status_master` */
+
+CREATE TABLE `finance_status_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `finance_status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `finance_status_master` */
+
+insert  into `finance_status_master`(`id`,`finance_status`) values (1,'Pending');
+insert  into `finance_status_master`(`id`,`finance_status`) values (2,'Completed');
 
 /*Table structure for table `house_master` */
 

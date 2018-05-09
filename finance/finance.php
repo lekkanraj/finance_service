@@ -78,7 +78,7 @@ Class finance{
         $financestatusmaster_table="finance_status_master";
         
         $query_string="select cm.*, lm.area,lt.linetype_name, fm.fin_id, fm.fin_amt, fm.hold_amt, fm.by_hand_amt, fm.cmpy_amt,
-                    fm.rec_amt, fm.bal_amt, fm.profit, fm.fin_start, fm.fin_end, fm.fin_cnt, fm.close_dt,
+                    cm.net_amt,cm.rec_amt, cm.bal_amt, fm.profit, fm.fin_start, fm.fin_end, fm.fin_cnt, fm.close_dt,
                     fm.closing_cnt, fm.fin_status_id, fsm.finance_status, fm.remarks from $customer_table as cm
                     JOIN $linemaster_table as lm ON  cm.line_id=lm.line_id
                     JOIN $linetype_table as lt ON lm.linetype_id=lt.linetype_id
@@ -94,17 +94,54 @@ Class finance{
         return $rows;
     }
     
-    public function updateFinCustomer($post){        
+    public function updateFinCustomer($post){
         $financemaster_table="finance_master";
+        $customer_table="customer_master";        
+      
         if($post){
-            $query="UPDATE $line_master_table set
-                                                linetype_id='".$post['linetype_id']."',
-                                                area='".$post['area']."',
-                                                isactive= '".$status."'
-                                                where line_id='".$post['line_id']."'";
-            $res=mysqli_query($this->db_con,$query);
+           // echo "<pre>";print_r($post);die();
+            $cus_id=$fin_id=$fin_amt=$hold_amt=$by_hand_amt=$cmpy_amt=$fin_start=$fin_end="";
+            $cus_id=$post['cus_id'];
+            
+            $fin_id=$post['fin_id'];
+            $net_amt=$post['net_amt'];
+            $bal_amt=$post['bal_amt'];
+            $rec_amt=$post['rec_amt'];
+            
+            $fin_amt=$post['fin_amt'];
+            $hold_amt=$post['hold_amt'];
+            $profit=$hold_amt;
+            $by_hand_amt=$post['by_hand_amt'];
+            $cmpy_amt=$post['cmpy_amt'];
+            
+            $fin_start=date("Y-m-d",strtotime($post['fin_start']));
+            $fin_end=$post['fin_end'];
+            $remarks=$post['remarks'];
+            $status_pending=1;
+            $status_completed=2;
+            $zero=0;
+            
+            if($fin_id==""){
+                $query="INSERT into $financemaster_table
+                (cus_id,fin_amt,hold_amt,by_hand_amt,cmpy_amt,profit,fin_start,fin_status_id,remarks)
+                values
+                ('".$cus_id."','".$fin_amt."','".$hold_amt."','".$by_hand_amt."','".$cmpy_amt."','".$profit."','".$fin_start."','".$status_pending."','".$remarks."')
+                 ";
+                $res=mysqli_query($this->db_con,$query);
+                $finid=mysqli_insert_id($this->db_con);
+                $query="UPDATE $customer_table set
+                                                fin_id='".$finid."',
+                                                net_amt='".$fin_amt."',
+                                                rec_amt='".$zero."',
+                                                bal_amt= '".$fin_amt."'
+                                                where cus_id='".$cus_id."'";
+                $res=mysqli_query($this->db_con,$query); 
+            }
+            
+            
+            
             if($res){
-                return $this->linelist();
+                return $res;
             }else{
                 return $res;
             }
