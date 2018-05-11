@@ -13,6 +13,8 @@ MySQL - 10.1.25-MariaDB : Database - finance-app
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 /*Table structure for table `config` */
 
+DROP TABLE IF EXISTS `config`;
+
 CREATE TABLE `config` (
   `con_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(300) DEFAULT NULL,
@@ -23,6 +25,8 @@ CREATE TABLE `config` (
 /*Data for the table `config` */
 
 /*Table structure for table `customer_master` */
+
+DROP TABLE IF EXISTS `customer_master`;
 
 CREATE TABLE `customer_master` (
   `cus_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -52,12 +56,14 @@ CREATE TABLE `customer_master` (
 /*Data for the table `customer_master` */
 
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (25,'Lekkan M','Former','9944649551','TNHB Velachery','Thayanur','3','Hari','62374672347',6,'AIAPLdsfsdf',1,600.00,0.00,600.00,1,NULL,NULL,NULL,NULL,15);
-insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (26,'Karthik ','SE','7898943543','Guindy','Kumbakonam','4','Raj','34636278624',4,'3243246237847',1,300.00,0.00,300.00,2,NULL,NULL,NULL,NULL,14);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (26,'Karthik ','SE','7898943543','Guindy','Kumbakonam','4','Raj','34636278624',4,'3243246237847',1,300.00,0.00,300.00,1,NULL,NULL,NULL,NULL,14);
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (27,'Aki','SE','48375934685','adsfd','sdfsdf','3','raj','5345345345',5,'sdfsdfsdf',1,0.00,0.00,0.00,3,NULL,NULL,NULL,NULL,0);
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (28,'Yuv','SE','435435345445','retreter','retret','3','tt','34545435',5,'34543543543543',1,0.00,0.00,0.00,4,NULL,NULL,NULL,NULL,0);
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (29,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL,0);
 
 /*Table structure for table `db_backup_history` */
+
+DROP TABLE IF EXISTS `db_backup_history`;
 
 CREATE TABLE `db_backup_history` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -71,6 +77,8 @@ CREATE TABLE `db_backup_history` (
 /*Data for the table `db_backup_history` */
 
 /*Table structure for table `finance_collection` */
+
+DROP TABLE IF EXISTS `finance_collection`;
 
 CREATE TABLE `finance_collection` (
   `coll_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -88,15 +96,12 @@ CREATE TABLE `finance_collection` (
 
 /*Data for the table `finance_collection` */
 
-insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (3,7,25,100.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
-insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (4,7,25,200.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
-insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (5,7,25,300.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
-insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (6,7,25,400.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
-insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (7,12,26,100.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
 insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (8,13,26,200.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
 insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (9,11,25,500.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `finance_master` */
+
+DROP TABLE IF EXISTS `finance_master`;
 
 CREATE TABLE `finance_master` (
   `fin_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -136,6 +141,8 @@ insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_am
 
 /*Table structure for table `finance_status_master` */
 
+DROP TABLE IF EXISTS `finance_status_master`;
+
 CREATE TABLE `finance_status_master` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `finance_status` varchar(20) NOT NULL,
@@ -149,6 +156,8 @@ insert  into `finance_status_master`(`id`,`finance_status`) values (2,'Completed
 
 /*Table structure for table `house_master` */
 
+DROP TABLE IF EXISTS `house_master`;
+
 CREATE TABLE `house_master` (
   `house_id` int(11) NOT NULL AUTO_INCREMENT,
   `house_type` varchar(10) DEFAULT NULL,
@@ -161,6 +170,8 @@ insert  into `house_master`(`house_id`,`house_type`) values (3,'Own');
 insert  into `house_master`(`house_id`,`house_type`) values (4,'Rental');
 
 /*Table structure for table `line_master` */
+
+DROP TABLE IF EXISTS `line_master`;
 
 CREATE TABLE `line_master` (
   `line_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -183,6 +194,8 @@ insert  into `line_master`(`line_id`,`linetype_id`,`area`,`isactive`,`cr_dt`,`cr
 
 /*Table structure for table `line_type` */
 
+DROP TABLE IF EXISTS `line_type`;
+
 CREATE TABLE `line_type` (
   `linetype_id` int(11) NOT NULL AUTO_INCREMENT,
   `linetype_name` varchar(20) DEFAULT NULL,
@@ -196,6 +209,8 @@ insert  into `line_type`(`linetype_id`,`linetype_name`) values (2,'Weekly');
 insert  into `line_type`(`linetype_id`,`linetype_name`) values (3,'Monthly');
 
 /*Table structure for table `monthly_debit` */
+
+DROP TABLE IF EXISTS `monthly_debit`;
 
 CREATE TABLE `monthly_debit` (
   `md_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -215,6 +230,8 @@ CREATE TABLE `monthly_debit` (
 /*Data for the table `monthly_debit` */
 
 /*Table structure for table `monthly_plan_master` */
+
+DROP TABLE IF EXISTS `monthly_plan_master`;
 
 CREATE TABLE `monthly_plan_master` (
   `pm_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -248,6 +265,8 @@ CREATE TABLE `monthly_plan_master` (
 
 /*Table structure for table `security_master` */
 
+DROP TABLE IF EXISTS `security_master`;
+
 CREATE TABLE `security_master` (
   `security_id` int(11) NOT NULL AUTO_INCREMENT,
   `security_name` varchar(100) DEFAULT NULL,
@@ -261,6 +280,8 @@ insert  into `security_master`(`security_id`,`security_name`) values (5,'Voter I
 insert  into `security_master`(`security_id`,`security_name`) values (6,'PAN Card');
 
 /*Table structure for table `user_master` */
+
+DROP TABLE IF EXISTS `user_master`;
 
 CREATE TABLE `user_master` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
