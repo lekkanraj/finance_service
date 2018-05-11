@@ -275,8 +275,8 @@ CREATE TABLE `user_master` (
 
 /*Data for the table `user_master` */
 
-insert  into `user_master`(`user_id`,`user_name`,`user_pwd`,`isactive`,`created_dt`,`created_by`,`admin`) values (3,'a','88pcQ6fPfsVEKeDvcvpS1Qjj2yd2wRyaZETBBd8NSEw','1',NULL,NULL,NULL);
-insert  into `user_master`(`user_id`,`user_name`,`user_pwd`,`isactive`,`created_dt`,`created_by`,`admin`) values (4,'b','V5bXLicQasxxmb4uF__1nVrLwixfB-NwnFaPHHBqTao','1',NULL,NULL,NULL);
+insert  into `user_master`(`user_id`,`user_name`,`user_pwd`,`isactive`,`created_dt`,`created_by`,`admin`) values (3,'a','ca898205d3ca09dba4279f3f0754c7d1','1',NULL,NULL,NULL);
+insert  into `user_master`(`user_id`,`user_name`,`user_pwd`,`isactive`,`created_dt`,`created_by`,`admin`) values (4,'b','b','1',NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
