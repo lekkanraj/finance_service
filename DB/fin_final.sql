@@ -55,8 +55,8 @@ CREATE TABLE `customer_master` (
 
 /*Data for the table `customer_master` */
 
-insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (25,'Lekkan M','Former','9944649551','TNHB Velachery','Thayanur','3','Hari','62374672347',6,'AIAPLdsfsdf',1,600.00,0.00,600.00,1,NULL,NULL,NULL,NULL,15);
-insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (26,'Karthik ','SE','7898943543','Guindy','Kumbakonam','4','Raj','34636278624',4,'3243246237847',1,300.00,0.00,300.00,1,NULL,NULL,NULL,NULL,14);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (25,'Lekkan M','Former','9944649551','TNHB Velachery','Thayanur','3','Hari','62374672347',6,'AIAPLdsfsdf',1,600.00,200.00,400.00,1,NULL,NULL,NULL,NULL,15);
+insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (26,'Karthik ','SE','7898943543','Guindy','Kumbakonam','4','Raj','34636278624',4,'3243246237847',1,300.00,100.00,200.00,1,NULL,NULL,NULL,NULL,14);
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (27,'Aki','SE','48375934685','adsfd','sdfsdf','3','raj','5345345345',5,'sdfsdfsdf',1,0.00,0.00,0.00,3,NULL,NULL,NULL,NULL,0);
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (28,'Yuv','SE','435435345445','retreter','retret','3','tt','34545435',5,'34543543543543',1,0.00,0.00,0.00,4,NULL,NULL,NULL,NULL,0);
 insert  into `customer_master`(`cus_id`,`cus_name`,`job_name`,`mobile_no`,`cur_addr`,`per_addr`,`house`,`bailee_name`,`bailee_mob`,`security_type`,`security_id`,`isactive`,`net_amt`,`rec_amt`,`bal_amt`,`line_id`,`cr_dt`,`cr_by`,`up_dt`,`up_by`,`fin_id`) values (29,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0.00,0.00,0.00,NULL,NULL,NULL,NULL,NULL,0);
@@ -84,7 +84,7 @@ CREATE TABLE `finance_collection` (
   `coll_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `fin_id` bigint(20) DEFAULT NULL,
   `cus_id` int(11) DEFAULT NULL,
-  `coll_amt` decimal(8,2) DEFAULT NULL,
+  `coll_amt` int(11) DEFAULT '0',
   `coll_dt` date DEFAULT NULL,
   `comments` varchar(500) DEFAULT NULL,
   `cr_dt` datetime(3) DEFAULT NULL,
@@ -92,12 +92,14 @@ CREATE TABLE `finance_collection` (
   `up_dt` datetime(3) DEFAULT NULL,
   `up_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`coll_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 /*Data for the table `finance_collection` */
 
-insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (8,13,26,200.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
-insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (9,11,25,500.00,'2018-05-10',NULL,NULL,NULL,NULL,NULL);
+insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (25,15,25,100,'2018-05-15',NULL,NULL,NULL,NULL,NULL);
+insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (26,14,26,50,'2018-05-15',NULL,NULL,NULL,NULL,NULL);
+insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (27,15,25,100,'2018-05-16',NULL,NULL,NULL,NULL,NULL);
+insert  into `finance_collection`(`coll_id`,`fin_id`,`cus_id`,`coll_amt`,`coll_dt`,`comments`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (28,14,26,50,'2018-05-16',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `finance_master` */
 
@@ -136,8 +138,8 @@ insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_am
 insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (11,25,500.00,50.00,50.00,500.00,500.00,0.00,50.00,'2018-05-10','2018-05-10',NULL,NULL,NULL,2,'',NULL,NULL,NULL,NULL);
 insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (12,26,100.00,10.00,90.00,100.00,100.00,0.00,10.00,'2018-05-10','2018-05-10',NULL,NULL,NULL,2,'',NULL,NULL,NULL,NULL);
 insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (13,26,200.00,20.00,80.00,200.00,200.00,0.00,20.00,'2018-05-10','2018-05-10',NULL,NULL,NULL,2,'',NULL,NULL,NULL,NULL);
-insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (14,26,300.00,30.00,70.00,300.00,0.00,0.00,30.00,'2018-05-10',NULL,NULL,NULL,NULL,1,'',NULL,NULL,NULL,NULL);
-insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (15,25,600.00,60.00,40.00,600.00,0.00,0.00,60.00,'2018-05-10',NULL,NULL,NULL,NULL,1,'',NULL,NULL,NULL,NULL);
+insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (14,26,300.00,30.00,70.00,300.00,100.00,200.00,30.00,'2018-05-10','0000-00-00',NULL,NULL,NULL,1,'',NULL,NULL,NULL,NULL);
+insert  into `finance_master`(`fin_id`,`cus_id`,`fin_amt`,`hold_amt`,`by_hand_amt`,`cmpy_amt`,`rec_amt`,`bal_amt`,`profit`,`fin_start`,`fin_end`,`fin_cnt`,`close_dt`,`closing_cnt`,`fin_status_id`,`remarks`,`cr_dt`,`cr_by`,`up_dt`,`up_by`) values (15,25,600.00,60.00,40.00,600.00,200.00,400.00,60.00,'2018-05-10','0000-00-00',NULL,NULL,NULL,1,'',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `finance_status_master` */
 

@@ -5,8 +5,7 @@ require 'collection.php';
 $list=new collection($connect);
 $collection_list=array();
 $post=$_POST;
-$get=$_GET;
-$collection_list=$list->collection_list($post);
+$collection_list=$list->update_collection($post);
 if($collection_list){
     print json_encode($collection_list);
 }else{
